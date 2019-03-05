@@ -9,7 +9,7 @@ label "repository"="https://github.com/cmccandless/github-action-python"
 label "homepage"="https://github.com/cmccandless/github-action-python"
 label "maintainer"="cmccandless"
 
-RUN apk --no-cache bash
+RUN apk add --no-cache bash
 
 RUN pip install --upgrade pip
 RUN pip install flake8
