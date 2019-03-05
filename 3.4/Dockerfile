@@ -1,7 +1,7 @@
-FROM python:3.8-rc-alpine
+FROM python:3.4-alpine
 
-label "com.github.actions.name"="GitHub Action for Python 3.8-rc"
-label "com.github.actions.description"="Run Python 3.8-rc code"
+label "com.github.actions.name"="GitHub Action for Python 3.4"
+label "com.github.actions.description"="Run Python 3.4 code"
 label "com.github.actions.icon"="terminal"
 label "com.github.actions.color"="purple"
 

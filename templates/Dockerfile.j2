@@ -1,0 +1,34 @@
+FROM python:{{ version }}-alpine
+
+label "com.github.actions.name"="GitHub Action for Python {{ version }}"
+label "com.github.actions.description"="Run Python {{ version }} code"
+label "com.github.actions.icon"="terminal"
+label "com.github.actions.color"="purple"
+
+label "repository"="{{ url }}"
+label "homepage"="{{ url }}"
+label "maintainer"="{{ maintainer }}"
+
+# Install bash
+RUN apk add --no-cache bash
+
+# Install pip
+RUN pip install --upgrade pip
+# Install default packages
+{%- for lib in libs %}
+RUN pip install {{ lib['name'] }}
+{%- endfor %}
+
+# Print version infos
+RUN python --version
+RUN pip --version
+{%- for lib in libs %}
+{%- if lib['is_executable'] %}
+RUN {{ lib['name'] }} --version
+{%- endif -%}
+{% endfor %}
+
+# Setup script directory
+COPY * /
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]

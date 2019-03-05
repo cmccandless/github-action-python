@@ -1,0 +1,19 @@
+workflow "Example" {
+  on = "push"
+  resolves = [
+    {% for version in versions -%}
+    "Python {{ version }}",
+    {% endfor -%}
+    "Example using local action",
+  ]
+}
+{% for version in versions %}
+action "Python {{ version }}" {
+  uses = "{{ repo }}/{{ version }}@master"
+  args = "python -c 'print(\"Hello, World!\")'"
+}
+{% endfor %}
+action "Example using local action" {
+  uses = "./3.7"
+  args = "python -c 'print(\"I am different\")'"
+}

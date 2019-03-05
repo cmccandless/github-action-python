@@ -1,0 +1,23 @@
+{
+    "maintainer": "cmccandless",
+    "url": "https://github.com/cmccandless/github-action-python",
+    "repo": "cmccandless/github-action-python",
+    "versions": [
+        "2.7",
+        "3.4",
+        "3.5",
+        "3.6",
+        "3.7",
+        "3.8-rc"
+    ],
+    "libs": [
+        {
+            "name": "flake8",
+            "is_executable": true
+        },
+        {
+            "name": "pytest",
+            "is_executable": true
+        }
+    ]
+}

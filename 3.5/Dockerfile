@@ -9,13 +9,22 @@ label "repository"="https://github.com/cmccandless/github-action-python"
 label "homepage"="https://github.com/cmccandless/github-action-python"
 label "maintainer"="cmccandless"
 
+# Install bash
 RUN apk add --no-cache bash
 
+# Install pip
 RUN pip install --upgrade pip
+# Install default packages
 RUN pip install flake8
 RUN pip install pytest
-RUN python --version ; pip --version ; flake8 --version ; pytest --version
 
+# Print version infos
+RUN python --version
+RUN pip --version
+RUN flake8 --version
+RUN pytest --version
+
+# Setup script directory
 COPY * /
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
