@@ -17,4 +17,5 @@ RUN pip install pytest
 RUN python --version ; pip --version ; flake8 --version ; pytest --version
 
 COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
