@@ -1,9 +1,9 @@
 workflow "Example" {
   on = "push"
-  resolves = ["cmccandless/github-action-python/3.7-alpine@master"]
+  resolves = ["GitHub Action for Python 3.7"]
 }
 
-action "cmccandless/github-action-python/3.7-alpine@master" {
+action "GitHub Action for Python 3.7" {
   uses = "cmccandless/github-action-python/3.7-alpine@master"
   args = "python -c 'print(\"Hello, World!\")'"
 }
