@@ -5,7 +5,7 @@ workflow "Example" {
     "Python 3.7",
     "Python 3.6",
     "Python 3.8-rc",
-    "Example using local Dockerfile",
+    "Example using local action",
   ]
 }
 
@@ -29,7 +29,7 @@ action "Python 3.8-rc" {
   args = "python -c 'print(\"Hello, World!\")'"
 }
 
-action "Example using local Dockerfile" {
-  uses = "./3.7-alpine/Dockerfile"
+action "Example using local action" {
+  uses = "./3.7-alpine"
   args = "python -c 'print(\"I am different\")'"
 }
