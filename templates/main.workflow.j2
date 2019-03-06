@@ -4,16 +4,13 @@ workflow "Example" {
     {% for version in versions -%}
     "Python {{ version }}",
     {% endfor -%}
-    "Example using local action",
+    "Local action"
   ]
 }
 {% for version in versions %}
 action "Python {{ version }}" {
   uses = "{{ repo }}/{{ version }}@master"
   args = "python -c 'print(\"Hello, World!\")'"
-  {%- if version == '3.7' %}
-  resolves = ["Local action"]
-  {%- endif %}
 }
 {% endfor %}
 action "Local action" {
